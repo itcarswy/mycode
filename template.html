@@ -6,27 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>vue_template</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   
+   <style>
+     [v-cloak] {
+        display: none;
+      }
+   </style>
 </head>
 <body>
-    <div id="app">
-      {{ message }}
-      {{ firstname }} 
+    <!-- v-cloak标签表示 表达式有数值就展示出来 没有就不展示 注意要定义<style>上面了  -->
+    <div id="app" v-cloak> 
+            {{ message }} {{ firstname }} 
+        <!-- <h2> {{ message }} {{ firstname }} </h2>  
+        <!-- 解析url中的地址 -->
+        <!-- <h2 v-html="url"></h2> 
+        <h2 v-text="message"></h2>  -->
+        <!-- 不加解析 -->
+       <!-- <h2 v-pre> {{ message }} </h2> -->
     </div>
     <!-- {{ message }} Mustace语法 -->
     <script>
           //注意:@ 叫语法糖   在这里应该是v-on:
-        let obj = {
-           message: '你好呀!',
-           firstname:'李银河'
-        }
+          //v-once语法 只在第一次加载   之后在控制台修改无效
+          //v-for="item in itemlist"   遍历
+        // let obj = {
+        //    message: '你好呀!',
+        //    firstname:'李银河',
+        //    url: '<a href="http://www.baidu.com">百度一下</a>'
+        // }
 
         let vm = new Vue({
             el: '#app',
             // data: {
             //   counter: 0
             // },
-            data: obj,
-            methods:{
+            data: mess,   
+            methods: {
                
               }
           })
