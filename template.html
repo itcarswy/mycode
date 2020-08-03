@@ -19,8 +19,8 @@
             {{ message }} {{ firstname }} 
         <!-- <h2> {{ message }} {{ firstname }} </h2>  
         <!-- 解析url中的地址 -->
-        <!-- <h2 v-html="url"></h2> 
-        <h2 v-text="message"></h2>  -->
+       <h2 v-html="url"></h2> 
+        <!--  <h2 v-text="message"></h2>  -->
         <!-- 不加解析 -->
        <!-- <h2 v-pre> {{ message }} </h2> -->
     </div>
@@ -29,11 +29,11 @@
           //注意:@ 叫语法糖   在这里应该是v-on:
           //v-once语法 只在第一次加载   之后在控制台修改无效
           //v-for="item in itemlist"   遍历
-        // let obj = {
-        //    message: '你好呀!',
-        //    firstname:'李银河',
-        //    url: '<a href="http://www.baidu.com">百度一下</a>'
-        // }
+        let obj = {
+           message: '你好呀!',
+           firstname:'李银河',
+           url: '<a href="http://www.baidu.com">百度一下</a>'
+        }
 
         let vm = new Vue({
             el: '#app',
