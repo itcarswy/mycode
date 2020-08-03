@@ -4,24 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>vue_Demo2</title>
+  <title>vue_template</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
-      <!-- {{ message }}  -->
-      <h2>当前计数:{{counter}}</h2>
-      <button @click='add'>+</button>
-      <button @click='sub'>-</button>
+      {{ message }} ,
+      {{ firstname }} 
     </div>
-
-    <!-- 初识vue,利用vue写一个简单的计数器22212 -->
-    <!-- 初识vue,利用vue写一个简单的计数器11121-->
-    <!-- 利用sourceTree解决代码冲突 -->
+    <!-- {{ message }} Mustace语法 -->
     <script>
           //注意:@ 叫语法糖   在这里应该是v-on:
         let obj = {
-           counter: 0
+           message: '你好呀!',
+           firstname:'李银河'
         }
 
         let vm = new Vue({
@@ -31,14 +27,7 @@
             // },
             data: obj,
             methods:{
-                add: function(){
-                  console.log('计数器加1');
-                  this.counter++;
-                },
-                sub: function(){
-                  console.log('计数器减1');
-                  this.counter--;
-                }
+               
               }
           })
     </script>
