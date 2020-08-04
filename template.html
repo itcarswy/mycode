@@ -7,24 +7,35 @@
   <title>vue_template</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    
-   <style>
+   <!-- <style>
      [v-cloak] {
         display: none;
       }
-   </style>
+   </style> -->
+   <style>
+        .active{
+            color: red
+        }
+      </style>
 </head>
 <body>
     <!-- v-cloak标签表示 表达式有数值就展示出来 没有就不展示 注意要定义<style>上面了  -->
     <div id="app" v-cloak> 
-            {{ message }} {{ firstname }} 
+            <!-- {{ message }} {{ firstname }}  -->
         <!-- <h2> {{ message }} {{ firstname }} </h2>  
         <!-- 解析url中的地址 -->
-       <h2 v-html="url"></h2> 
-       <img v-bind:src="imageUrl">
+       <!-- <h2 v-html="url"></h2>  -->
+       <!-- <img v-bind:src="imageUrl"> -->
+       <!-- v-bind语法糖写法 -->
+       <!-- <img :src="imageUrl"> -->
         <!--  <h2 v-text="message"></h2>  -->
         <!-- 不加解析 -->
        <!-- <h2 v-pre> {{ message }} </h2> -->
        <!-- v-bind 动态绑定属性 -->
+   
+        <h2 :class="getClasses()"> {{ message }} </h2>
+        <button @click="butClick">按钮</button>
+
 
     </div>
     <!-- {{ message }} Mustace语法 -->
@@ -36,7 +47,9 @@
            message: '你好呀!',
            firstname:'李银河',
            url: '<a href="http://www.baidu.com">百度一下</a>',
-           imageUrl: 'https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2pwZy9QbjRTbTBSc0F1akI4NVJGbERpY2lhdUNvSzJnR29iN0dDeWNock9udTZLQ2pYZHh2dmQ5ZWJFS1NRZm1CTzVpYmxBZ0hJbTBZVUpPTzZKSFRQQzRRaWJoaWJ3LzY0MA?x-oss-process=image/format,png'
+           imageUrl: 'https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2pwZy9QbjRTbTBSc0F1akI4NVJGbERpY2lhdUNvSzJnR29iN0dDeWNock9udTZLQ2pYZHh2dmQ5ZWJFS1NRZm1CTzVpYmxBZ0hJbTBZVUpPTzZKSFRQQzRRaWJoaWJ3LzY0MA?x-oss-process=image/format,png',
+           isActive: true,
+           isLine: true
         }
 
         let vm = new Vue({
@@ -46,7 +59,12 @@
             // },
             data: obj,   
             methods: {
-               
+                butClick: function(){
+                    this.isActive = !this.isActive
+                },
+                getClasses: function(){
+                    return {active: this.isActive, line: this.isLine}
+                }
               }
           })
     </script>
