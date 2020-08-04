@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue_tableColor</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+ 
+   <style>
+        .active{
+            color: red
+        }
+      </style>
+</head>
+<body>
+    <!-- v-cloak标签表示 表达式有数值就展示出来 没有就不展示 注意要定义<style>上面了  -->
+    <div id="app"> 
+
+        <ul>
+            <li @click="butClick(index)" :class="{active: index == isActive}" v-for="(item,index) in itemlist">{{item}}</li>
+        </ul>
+        
+   
+        <!-- <h2 :class="getClasses()"> {{ message }} </h2>
+        <button @click="butClick">按钮</button> -->
+
+    </div>
+   
+    <script>
+         
+          //v-for="item in itemlist"   遍历
+        let obj = {
+            isActive: true,
+            itemlist: ['金刚狼','火影忍者','海贼王','柯南']
+        }
+
+        let vm = new Vue({
+            el: '#app',
+            // data: {
+            //   counter: 0
+            // },
+            data: obj,   
+            methods: {
+                butClick: function(index){
+                    this.isActive = index
+                },
+                getClasses: function(){
+                    return {active: this.isActive, line: this.isLine}
+                }
+              }
+          })
+    </script>
+</body>
+</html>
+
