@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue_model</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>-----------单选下拉框---------------------</h2>
+       <select name="abc" id="" v-model='fruit'>
+          <option value="香蕉">香蕉</option>
+          <option value="葡萄">葡萄</option>
+          <option value="苹果">苹果</option>
+          <option value="橘子">橘子</option>
+       </select>
+       <h2>您选择的是:{{fruit}}</h2>
+
+       <h2>-----------多选下拉框---------------------</h2>
+       <!-- 注意这个多选需要按住ctrl键多选 -->
+       <select name="abc" id="" v-model='fruits' multiple>
+            <option value="香蕉">香蕉</option>
+            <option value="葡萄">葡萄</option>
+            <option value="苹果">苹果</option>
+            <option value="橘子">橘子</option>
+         </select>
+         <h2>您选择的是:{{fruits}}</h2>
+    </div>
+    
+   <!-- 注意:v-model其实是两个指令
+               1,v-bind  绑定一个value属性
+               2,v-on 指令给当前元素绑定input事件 -->
+    <script>
+          //注意:@ 叫语法糖   在这里应该是v-on:
+
+        //   新增给sex默认值
+        let obj = {
+           fruit: '香蕉',      //单选框时候
+           fruits: []      //多选框时候
+
+        }
+
+        let vm = new Vue({
+            el: '#app',
+            data: obj,
+            methods:{
+               
+              }
+          })
+    </script>
+</body>
+</html>
+
+ 

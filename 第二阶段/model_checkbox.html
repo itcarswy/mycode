@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue_model</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 单选类型的 -->
+        <h2>--------------单选类型-----------------</h2>
+      <label for="license">
+          <input type="checkbox" id = 'license' name = 'sex' v-model= 'islicense'>同意协议
+      </label>
+      <h2>您选择的是:{{islicense}}</h2>
+      <button :disabled='!islicense'>下一步</button>
+
+       <!-- 多选类型 -->
+      <h2>--------------多选类型-----------------</h2>
+       <!-- <label for="license">
+            <input type="checkbox" value="篮球" v-model= 'hobbies'>篮球
+            <input type="checkbox" value="排球" v-model= 'hobbies'>排球
+            <input type="checkbox" value="兵乓球" v-model= 'hobbies'>兵乓球
+            <input type="checkbox" value="羽毛球" v-model= 'hobbies'>羽毛球
+        </label> -->
+        
+        <!-- 动态绑定--值绑定 -->
+        <label v-for="item in orgHobbies" :for = 'item'  >
+            <input type="checkbox"  :value = "item" :id='item' v-model = 'hobbies' >{{item}}
+        </label>
+        <h4 v-if="hobbies.length" >
+                <button @click='clearBtn()' >清空所选</button>
+        </h4>
+        
+        <h2>您选择的爱好是:{{hobbies}}</h2>
+
+    </div>
+    
+   <!-- 注意:v-model其实是两个指令
+               1,v-bind  绑定一个value属性
+               2,v-on 指令给当前元素绑定input事件 -->
+    <script>
+          //注意:@ 叫语法糖   在这里应该是v-on:
+
+        //   新增给sex默认值
+        let obj = {
+           sex: '男',
+           islicense: false,//单选框时候
+           hobbies: [],      //多选框时候
+           orgHobbies: ['篮球','排球','兵乓球','羽毛球','台球','足球']
+        }
+
+        let vm = new Vue({
+            el: '#app',
+            data: obj,
+            methods:{
+                clearBtn(){
+                 console.log('清空'+this.hobbies.length+'个所选数据')
+                 this.hobbies.splice(0)
+                }
+              }
+          })
+    </script>
+</body>
+</html>
+
+ 
