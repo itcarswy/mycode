@@ -135,6 +135,11 @@
             return n*2
         })
         console.log(newNumss)
+      //3,reduce方法的使用----统计汇总值(是递归吧)
+        let total =  newNumss.reduce(function(perValue,n){
+                return perValue + n
+            },0)
+        console.log(total)
     </script>
 </body>
 </html>
