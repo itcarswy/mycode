@@ -124,12 +124,17 @@
             }
         })
       //------------扩展-------------------------
-      //函数式编程-filter的使用
+      //1,函数式编程-filter的使用
        const nums = [20,30,40,50,70,80,90]
-       let numNew = nums.filter(function(n){
+       let newNums = nums.filter(function(n){
            return n<80
        })
-       console.log(numNew)
+       console.log(newNums)
+        //2,函数式编程-map的使用
+        let newNumss = newNums.map(function(n){
+            return n*2
+        })
+        console.log(newNumss)
     </script>
 </body>
 </html>
