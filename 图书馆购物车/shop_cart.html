@@ -140,6 +140,15 @@
                 return perValue + n
             },0)
         console.log(total)
+   //----------------高阶高阶函数式编程----链式编程
+        let total2 = nums.filter(function(n){
+            return n < 80
+        }).map(function(n){
+            return n * 2
+        }).reduce(function(perValue,n){
+            return perValue + n
+        },0)
+     console.log(total2)
     </script>
 </body>
 </html>
